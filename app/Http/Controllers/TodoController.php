@@ -23,4 +23,10 @@ class TodoController extends Controller
     	$todo = Todo::all();
     	return view('todo')->with('todo', $todo);
     }
+
+    public function delete(Request $request, Todo $todo)
+    {
+    	$todo->delete();
+    	return redirect('todo')->with('todo', $todo);
+    }
 }
